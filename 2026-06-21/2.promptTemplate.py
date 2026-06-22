@@ -1,31 +1,17 @@
-# import os
-from os import getenv
-from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+from base import chat
 from langchain_core.prompts import ChatPromptTemplate
 
-load_dotenv()
 
-api_key = getenv("OPENAI_API_KEY")
+llm = chat()
 
-if not api_key:
-    raise ValueError("请在 .env 文件中设置 OPENAI_API_KEY")
-
-
-chat = ChatOpenAI(
-    model="MiniMax-M3",
-    openai_api_key=api_key,
-    openai_api_base="https://api.minimaxi.com/v1",
-    temperature=0,
-    max_tokens=1024,
-)
 
 prompt_template = ChatPromptTemplate.from_template(
     "你是一个{role}。请用{style}的风格回答问题。\n\n问题: {question}"
 )
 
 
-chain = prompt_template | chat
+chain = prompt_template | llm
+
 
 result1 = chain.invoke(
     {"role": "Python助教", "style": "轻松活泼", "question": "什么是装饰器？"}
