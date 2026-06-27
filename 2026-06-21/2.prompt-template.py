@@ -5,12 +5,12 @@ from langchain_core.prompts import ChatPromptTemplate
 llm = chat()
 
 
-prompt_template = ChatPromptTemplate.from_template(
+prompt = ChatPromptTemplate.from_template(
     "你是一个{role}。请用{style}的风格回答问题。\n\n问题: {question}"
 )
 
 
-chain = prompt_template | llm
+chain = prompt | llm
 
 
 result1 = chain.invoke(
