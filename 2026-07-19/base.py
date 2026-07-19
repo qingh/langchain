@@ -2,7 +2,8 @@ from functools import cache
 from os import getenv
 
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+from langchain.chat_models import init_chat_model
+from langchain_core.language_models.chat_models import BaseChatModel
 
 load_dotenv()
 
@@ -11,8 +12,8 @@ DEFAULT_MAX_TOKENS = 1024
 
 
 @cache
-def chat() -> ChatOpenAI:
-    """Build a ChatOpenAI client from environment variables.
+def chat() -> BaseChatModel:
+    """Build a chat model client from environment variables.
 
     The instance is cached so repeated calls reuse the same client,
     avoiding redundant construction and enabling HTTP connection reuse.
@@ -21,10 +22,11 @@ def chat() -> ChatOpenAI:
     if not api_key:
         raise ValueError("please set your API_KEY in .env file")
 
-    return ChatOpenAI(
+    return init_chat_model(
         model=getenv("MODEL"),
-        openai_api_key=api_key,
-        openai_api_base=getenv("BASE_URL"),
+        model_provider="openai",
+        api_key=api_key,
+        base_url=getenv("BASE_URL"),
         temperature=DEFAULT_TEMPERATURE,
         max_tokens=DEFAULT_MAX_TOKENS,
     )
