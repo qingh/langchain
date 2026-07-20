@@ -1,9 +1,4 @@
-# import chat from base
-from base import chat
+from base import ask
 
-llm = chat()
-
-
-response = llm.invoke("用一句话介绍你自己")
-
-print(response.content)
+if __name__ == "__main__":
+    ask("用一句话介绍你自己")
