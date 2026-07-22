@@ -100,3 +100,35 @@ pip 默认会缓存已下载的包(在 %LOCALAPPDATA%\pip\Cache),重复安装同
 用 uv(新一代包管理工具)替代 pip 也是个选择,下载和解析速度明显更快,而且能自动利用镜像配置
 
 需要我帮你写一个一键切换镜像源的脚本吗？
+
+## debian
+
+pyenv 是一个 Python 版本管理工具，常用命令：
+
+安装版本
+
+
+pyenv install 3.11.0      # 安装指定版本
+pyenv versions             # 查看已安装版本
+切换版本
+
+
+pyenv global 3.11.0        # 设置全局默认版本
+pyenv local 3.11.0         # 在当前目录创建 .python-version 文件
+pyenv shell 3.11.0         # 设置当前 shell 会话版本
+创建虚拟环境
+
+
+pyenv virtualenv 3.11.0 myenv    # 基于某版本创建虚拟环境
+pyenv local myenv                # 激活虚拟环境
+其他常用命令
+
+
+pyenv uninstall 3.11.0    # 卸载版本
+pyenv which python         # 查看当前 Python 路径
+pyenv rehash               # 更新 shims（安装新版本后需要）
+如果你用的是 pyenv-virtualenv 插件，还可以：
+
+
+pyenv activate myenv       # 激活虚拟环境
+pyenv deactivate           # 退出虚拟环境
