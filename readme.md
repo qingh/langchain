@@ -17,7 +17,8 @@ virtualenv .venv
 
 PowerShell
 ```
-pip freeze > requirements.txt
+pip freeze > requirements.txt   # 不附带python版本
+echo "# Python version: $(python3 -V)" > requirements.txt && pip freeze >> requirements.txt # 附带python版本
 ```
 这会生成一个非常小的文本文件 requirements.txt，里面记录了你这个项目用到了哪些包和对应的版本。把这个文件提交到 Git。
 
@@ -109,28 +110,39 @@ pyenv 是一个 Python 版本管理工具，常用命令：
 
 
 pyenv install 3.11.0      # 安装指定版本
-pyenv versions             # 查看已安装版本
+pyenv versions            # 查看所有已安装的 Python 版本和虚拟环境
+pyenv virtualenvs	      # 仅查看所有的虚拟环境
+
+
 切换版本
-
-
 pyenv global 3.11.0        # 设置全局默认版本
 pyenv local 3.11.0         # 在当前目录创建 .python-version 文件
 pyenv shell 3.11.0         # 设置当前 shell 会话版本
+
+
 创建虚拟环境
-
-
 pyenv virtualenv 3.11.0 myenv       # 基于某版本创建虚拟环境
 pyenv activate myenv                # 激活虚拟环境
 pyenv deactivate                    # 退出虚拟环境
+pyenv uninstall myenv               # 删除虚拟环境
+
 其他常用命令
+pyenv uninstall 3.11.0      # 卸载版本
+pyenv which python          # 查看当前 Python 路径
+pyenv rehash                # 更新 shims（安装新版本后需要）
 
 
-pyenv uninstall 3.11.0    # 卸载版本
-pyenv which python         # 查看当前 Python 路径
-pyenv rehash               # 更新 shims（安装新版本后需要）
+## 内嵌式虚拟环境（debian）
+```
+cd /path/to/project         # 1. 进入项目目录
 
+python -m venv .venv        # 2. 在当前目录下创建名为 .venv 的虚拟环境文件夹（Linux 下加 . 表示隐藏文件夹）
 
-pip 加速
+source .venv/bin/activate   # 3. 激活环境
+
+deactivate                  # 4.退出虚拟环境
+```
+## pip 加速
 
 ```
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
