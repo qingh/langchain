@@ -3,8 +3,7 @@ import chainlit as cl
 
 @cl.step(type="tool")
 async def tool():
-    # Fake tool
-    await cl.sleep(2)
+    await cl.sleep(3)
     return "Response from the tool!"
 
 
@@ -21,7 +20,6 @@ async def main(message: cl.Message):
         None.
     """
 
-    # Call the tool
     tool_res = await tool()
 
     await cl.Message(content=tool_res).send()
