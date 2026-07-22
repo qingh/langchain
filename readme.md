@@ -119,16 +119,21 @@ pyenv shell 3.11.0         # 设置当前 shell 会话版本
 创建虚拟环境
 
 
-pyenv virtualenv 3.11.0 myenv    # 基于某版本创建虚拟环境
-pyenv local myenv                # 激活虚拟环境
+pyenv virtualenv 3.11.0 myenv       # 基于某版本创建虚拟环境
+pyenv activate myenv                # 激活虚拟环境
+pyenv deactivate                    # 退出虚拟环境
 其他常用命令
 
 
 pyenv uninstall 3.11.0    # 卸载版本
 pyenv which python         # 查看当前 Python 路径
 pyenv rehash               # 更新 shims（安装新版本后需要）
-如果你用的是 pyenv-virtualenv 插件，还可以：
 
 
-pyenv activate myenv       # 激活虚拟环境
-pyenv deactivate           # 退出虚拟环境
+pip 加速
+
+```
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip config set global.trusted-host pypi.tuna.tsinghua.edu.cn
+```
+
