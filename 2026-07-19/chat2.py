@@ -1,5 +1,5 @@
 import chainlit as cl
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 
 
 @cl.on_chat_start

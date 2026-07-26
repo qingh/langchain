@@ -104,8 +104,11 @@ rag_chain = (
     | StrOutputParser()
 )
 
-# answer = rag_chain.invoke("这份录用通知书里，报到接待人是谁？")
-# answer = rag_chain.invoke("这份录用通知书里，报到地点是在哪里？")
-# answer = rag_chain.invoke("这份录用通知书里，接待人电话是多少？")
-answer = rag_chain.invoke("这份录用通知书里，候选人税前薪资和税后薪资分别是多少？")
+# question = "这份录用通知书里，报到接待人是谁？"
+# question = "这份录用通知书里，报到地点是在哪里？"
+# question = "这份录用通知书里，接待人电话是多少？"
+question = "录用通知书里，候选人税前薪资和税后薪资分别是多少？"
+# question = "根据公司规定，累计工作已满10年，不满20年，可以享受多少天带薪年假？"
+# question = "公司的员工手册，是什么时间发布的？"
+answer = rag_chain.invoke(question)
 print(answer)

@@ -1,6 +1,6 @@
 import chainlit as cl
 from base import chat
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 
 llm = chat()
 

@@ -1,6 +1,6 @@
 import chainlit as cl
 from base import ask
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
 
 @cl.on_chat_start
