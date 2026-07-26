@@ -111,7 +111,7 @@ pyenv 是一个 Python 版本管理工具，常用命令：
 
 pyenv install 3.11.0      # 安装指定版本
 pyenv versions            # 查看所有已安装的 Python 版本和虚拟环境
-pyenv virtualenvs	      # 仅查看所有的虚拟环境
+pyenv virtualenvs	        # 仅查看所有的虚拟环境
 
 
 切换版本
