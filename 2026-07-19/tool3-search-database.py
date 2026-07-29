@@ -12,7 +12,7 @@ def search_database(
     Args:
         table: 要查询的表名（users / orders / products）
     """
-    rows = fetch_all(f"SELECT * FROM {table}")
+    rows = fetch_all(f"SELECT id,user FROM {table}")
     return rows
 
 
