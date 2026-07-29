@@ -149,3 +149,16 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip config set global.trusted-host pypi.tuna.tsinghua.edu.cn
 ```
 
+docker
+```
+docker run -d \
+  --name mysql-dev \
+  -e MYSQL_ROOT_PASSWORD=654321 \
+  -e MYSQL_DATABASE=mydb \
+  -e MYSQL_USER=myuser \
+  -e MYSQL_PASSWORD=aabbcc \
+  -p 3306:3306 \
+  -v mysql_data:/var/lib/mysql \
+  mysql:8.0.39
+```
+docker compose -f ./mysql-setup.yml up -d

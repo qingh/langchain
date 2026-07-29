@@ -1,0 +1,23 @@
+services:
+  mysql:
+    image: mysql:8.0.39
+    container_name: mysql-dev
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "654321"
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: "112233"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p654321"] # 加上密码 ping 更准确
+      interval: 10s       # 每次检查的间隔
+      timeout: 5s         # 超时时间
+      retries: 5          # 重试次数（10次有点多，5次足够了）
+      start_period: 30s   # 给 MySQL 初始化的缓冲时间，期间失败不计入重试
+
+volumes:
+  mysql_data:
