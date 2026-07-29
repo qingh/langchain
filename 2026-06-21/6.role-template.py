@@ -1,7 +1,6 @@
 from base import chat
 from langchain_core.prompts import ChatPromptTemplate
 
-
 llm = chat()
 
 

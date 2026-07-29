@@ -1,6 +1,5 @@
 from base import chat
-from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
-
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
 llm = chat()
 

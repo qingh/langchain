@@ -1,9 +1,9 @@
 from base import chat
+from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.prompts import (
     ChatPromptTemplate,
     MessagesPlaceholder,
 )
-from langchain_core.messages import HumanMessage, AIMessage
 
 llm = chat()
 

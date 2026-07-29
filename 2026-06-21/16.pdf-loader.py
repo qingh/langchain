@@ -1,6 +1,5 @@
 from langchain_unstructured import UnstructuredLoader
 
-
 loader = UnstructuredLoader(
     file_path="data/1.语法同步练习基础语法合集.pdf",
     # 透传给底层 unstructured.partition.pdf

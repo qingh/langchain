@@ -1,8 +1,8 @@
 from base import chat
-from langchain_openai import OpenAIEmbeddings
 from langchain_core.example_selectors import SemanticSimilarityExampleSelector
-from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_core.prompts import ChatPromptTemplate, FewShotChatMessagePromptTemplate
+from langchain_core.vectorstores import InMemoryVectorStore
+from langchain_openai import OpenAIEmbeddings
 
 llm = chat()
 
